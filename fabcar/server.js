@@ -201,7 +201,7 @@ app.get('/*', (request, response) => {
 	console.log("Method: GET");
     console.log("Url: " + request.url);
 	if(request.url === "/") {
-		response.sendfile("./page.html");
+		response.sendfile("./aaa.html");
 		return;
 	}
 	
@@ -229,7 +229,7 @@ app.get('/*', (request, response) => {
         const bodyObj = {key : id, 
             fio : {"name" : name}
         }
-        console.log("  " + JSON.stringify(bodyObj.fio));
+        console.log("  " + JSON.stringify(bodyObj));
         MakeInvoke("addBeneficiary", [bodyObj.key, JSON.stringify(bodyObj.fio)], function(answer) {
             if(answer === "ERROR")  {
                 response.end("Ошибка добавления бенефициара");

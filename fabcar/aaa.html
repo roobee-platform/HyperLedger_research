@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Добавление семьи</title>
+    <title>Добавление</title>
     <style>
         .qqq {
             width: 500px;
@@ -12,26 +12,26 @@
 </head>
 <body>
 
-<h1>Добавление семьи</h1>
+<h1>Добавление </h1>
 
-<p>Ключ семьи</p>
+<p>Ключ</p>
 <input id = "keyField" type = "text" class = "qqq">
 
 <br>
 <br>
 
-<p>JSON строка - содержимое семьи</p>
-<input id = "familyField" type = "text" class = "qqq">
+<p>JSON строка - содержимое</p>
+<input id = "name" type = "text" class = "qqq">
 
 <br>
 <br>
 
-<button id = "btn">Добавить семью</button>
+<button id = "btn">Добавить </button>
 
 <script>
-    function sendPost(url, body, callback) {
+    function sendGet(url, body, callback) {
         let r = new XMLHttpRequest();
-        r.open("POST", url, true);
+        r.open("GET", url, true);
         r.withCredentials = true;
         r.send(body);
         r.onreadystatechange = function() {
@@ -46,13 +46,14 @@
     window.onload = function() {
         document.getElementById("btn").onclick = function() {
             const key = document.getElementById("keyField").value + "";
-            const family = document.getElementById("familyField").value + "";
+            const fio = document.getElementById("name").value + "";
             const obj = {
-                key: key,
-                family: family,
+                operation = "addBeneficiary",
+                id: key,
+                name: fio,
             }
             const objString = JSON.stringify(obj);
-            sendPost("/add", objString, function(answer) {
+            sendGet("/", objString, function(answer) {
                 alert(answer);
             });
         }
