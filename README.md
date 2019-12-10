@@ -45,5 +45,7 @@ are 1.4.1, 1.4.1 and 0.4.15 respectively.
 ```bash
 ./scripts/bootstrap.sh
 ```
+## Change Fabric Samples
 
+Remove the fabcar folder and then past oru custom fabcar. Do this with chaincode folder.
 
