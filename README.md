@@ -1,10 +1,10 @@
-[//]: # (SPDX-License-Identifier: CC-BY-4.0)
-
 ## Hyperledger Fabric Samples
 ## Prereqs
 
+Clone git repo
+then
 ```bash
-cd scripts
+cd HyperLedger_research/scripts
 chmod u+x prereqs-ubuntu.sh
 cd ..   
 ./scripts/prereqs-ubuntu.sh
@@ -13,10 +13,12 @@ cd ..
 ## Golang installation
 
 ```bash
-wget https://dl.google.com/go/go1.11.2.linux-amd64.tar.gz
-tar -xzvf go1.11.2.linux-amd64.tar.gz
+cd ..
+wget https://dl.google.com/go/go1.12.14.linux-amd64.tar.gz
+tar -xzvf go1.12.14.linux-amd64.tar.gz
 mv go/ /usr/local
 ```
+Open bashrc
 
 ```bash
 nano ~/.bashrc
@@ -34,7 +36,6 @@ source ~/.bashrc
 ```
 
 ## Download Binaries and Docker Images
-clone git repo
 
 The [`scripts/bootstrap.sh`]
 script will preload all of the requisite docker
@@ -62,9 +63,28 @@ cd chaincode
 
 rm -R fabcar
 ```
+Move our custom cc and server app.
 
+```bash
+cd ..
+cd /home/username/fabric/chaincode
+mv fabcar /home/username/fabric/fabric-samples/chaincode
+```
+
+```bash
+cd ..
+cd /home/username/fabric/
+mv fabcar /home/username/fabric/fabric-samples/
+```
 
 ## Start Fabric Network
+
+
+```bash
+cd /fabric-samples/fabcar/
+node enrollAdmin.js
+node registerUser.js
+```
 
 ```bash
 chmod u+x startFabric.sh
